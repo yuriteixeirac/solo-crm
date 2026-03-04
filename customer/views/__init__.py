@@ -1,0 +1,1 @@
+from customer.views.customer import get_all
