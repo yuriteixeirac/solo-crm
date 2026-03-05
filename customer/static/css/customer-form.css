@@ -10,3 +10,7 @@ form input {
 button {
     width: 98%;
 }
+
+#form-errors {
+    padding: 0.5rem 0;
+}

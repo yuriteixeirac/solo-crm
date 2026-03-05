@@ -5,15 +5,17 @@ main a {
 
 #customer {
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
     border: 2px solid black;
-    padding: 1.5rem;
     border-radius: 8px;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
 #customer-info {
-    padding: 0 1.5rem;
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 #customer-icon {
@@ -32,4 +34,27 @@ main a {
     margin: 0.5rem 0rem;
     padding: 0.5rem 1rem;
     border-radius: 8px;
+}
+
+#customer-actions {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+#customer-actions form button {
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-weight: 800;
+    border-radius: 8px;
+}
+
+#customer-actions #delete {
+    background-color: red;
+}
+
+#customer-actions #update {
+    background-color: blue;
 }

@@ -9,9 +9,16 @@
 
 {% block content %}
     <div id="customer-form">
-        <form action="/customer/add/" method="POST">
+        <form action="/customer{{ action }}" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
+
+            <div id="form-errors">
+                {% for message in messages %}
+                    <p id="error">{{ message }}</p>
+                {% endfor %}
+            </div>
+
             <button type='submit'>Send</button>
         </form>
     </div>
