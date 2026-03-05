@@ -1,0 +1,12 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+form input {
+    width: 95%;
+}
+
+button {
+    width: 98%;
+}

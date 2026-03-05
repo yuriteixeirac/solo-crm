@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Contact details{% endblock %}
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/customer-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="customer">
+        <div id="customer-icon">
+            <h2>{{ customer.name.0 }}</h2>
+        </div>
+        <div id="customer-details">
+            <h2>{{ customer.name }}</h2>
+            {% if customer.email %}
+                <p><strong>E-MAIL</strong>: {{ customer.email }}</p>
+            {% endif %}
+            {% if customer.number %}
+                <p><strong>PHONE</strong>: {{ customer.number }}</p>
+            {% endif %}
+            <p><strong>REGISTERED AT</strong>: {{ customer.created_at }}</p>
+            <p><strong>LEAD</strong>: {{ customer.lead_state }}</p>
+        </div>
+    </div>
+
+    <div id="interactions">
+        <h3>Interactions with customer</h3>
+        <ul>
+        {% for interaction in interactions %}
+            <li id="interaction">- {{ interaction.contact_type.capitalize }} - {{ interaction.created_at }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

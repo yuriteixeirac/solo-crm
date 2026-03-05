@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Add customer{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/customer-form.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div id="customer-form">
+        <form action="/customer/add/" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type='submit'>Send</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,1 +1,1 @@
-from customer.views.customer import get_all
+from customer.views.customer import *
