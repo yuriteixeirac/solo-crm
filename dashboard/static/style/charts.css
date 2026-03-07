@@ -1,0 +1,39 @@
+#charts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.chart {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    max-width: 100%;
+    justify-self: stretch;
+}
+
+#lead-pipeline {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    height: 430px;
+}
+
+#interactions-types {
+    position: relative;
+    bottom: 10rem;
+    grid-column: 2 / 2;
+    grid-row: 2; /* span two rows if you want it taller */
+}
+
+#interactions-over-time {
+    height: 60%;
+    grid-column: 2 / 4;
+    grid-row: 1;
+}
+
+#recent-customers {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    height: 50%;
+}

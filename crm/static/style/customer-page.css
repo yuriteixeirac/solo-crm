@@ -1,0 +1,100 @@
+main a {
+    text-decoration: none;
+    color: black;
+}
+
+#search-form input {
+    width: 96%;
+    height: 2rem;
+    padding: 0 1rem;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 3px;
+}
+
+#customer {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
+    margin: 0.6rem 0;
+}
+
+#customer-info {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#customer-icon {
+    width: 120px;
+    height: 120px;
+    line-height: 110px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    background: #000;
+}
+
+#interactions ul {
+    list-style: none;
+    margin: 0.5rem 0rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+#customer-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+#customer-actions form button {
+    width: 60px;
+    height: 50px;
+    color: white;
+    font-weight: 800;
+    border-radius: 8px;
+}
+
+#customer-actions #delete {
+    background-color: rgb(174, 52, 52);
+}
+
+#customer-actions #update {
+    background-color: rgb(38, 38, 217);
+}
+
+#customer-actions #add-interaction {
+    background-color: rgb(56, 143, 56);
+}
+
+#customer-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.6rem 0;
+    height: 1.8rem;
+    flex-direction: row;
+}
+
+#customer-add-button {
+    display: flex;
+    justify-content: center;
+    width: 8rem;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 0.7rem;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background-color: rgb(38, 38, 217);
+}

@@ -1,1 +1,0 @@
-from customer.forms.customer import CustomerForm

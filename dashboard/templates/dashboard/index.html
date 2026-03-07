@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock title %}
+
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/charts.css' %}">
+{% endblock head %}
+
+{% block content %}
+<div id="charts-container">
+    <div id="lead-pipeline" class="chart">
+        <h2>Number of leads</h2>
+        <canvas id="lead-pipeline-canva"></canvas>
+    </div>
+    
+    <div id="interactions-over-time" class="chart">
+        <h2>Interactions over time</h2>
+        <canvas id="interactions-over-time-canva"></canvas>
+    </div>
+
+    <div id="recent-customers" class="chart">
+        <h2>Recent customers</h2>
+        <canvas id="recent-customers-canva"></canvas>
+    </div>
+
+    <div id="interactions-types" class="chart">
+        <h2>Interactions types</h2>
+        <canvas id="interactions-types-canva"></canvas>
+    </div>
+</div>
+
+<script>
+    const leadPipelineCtx = document.getElementById("lead-pipeline-canva");
+
+    new Chart(leadPipelineCtx, {
+        type: 'pie',
+        data: {
+            labels: {{ lead_pipeline_labels|safe }},
+            datasets: [{
+                label: 'Number of leads',
+                data: {{ lead_pipeline_data|safe }},
+            }]
+        }
+    })
+
+    const interactionOverTimeCtx = document.getElementById("interactions-over-time-canva");
+
+    new Chart(interactionOverTimeCtx, {
+        type: 'line',
+        data: {
+            labels: {{ interactions_over_time_labels|safe }},
+            datasets: [{
+                label: 'Interactions over time',
+                data: {{ interactions_over_time_data|safe }}
+            }],
+            fill: false
+        }
+    })
+
+    const interactionsTypesCtx = document.getElementById("interactions-types-canva");
+    
+    new Chart(interactionsTypesCtx, {
+        type: 'doughnut',
+        data: {
+            labels: {{ interactions_types_labels|safe }},
+            datasets: [{
+                label: 'Interactions types',
+                data: {{ interactions_types_data|safe }}
+            }]
+        }
+    })
+
+    const recentCustomersCtx = document.getElementById("recent-customers-canva");
+
+    new Chart(recentCustomersCtx, {
+        type: 'bar',
+        data: {
+            labels: {{ recent_customers_labels|safe }},
+            datasets: [{
+                label: 'Recent customers',
+                data: {{ recent_customers_data|safe }},
+            }]
+        }
+    })
+</script>
+{% endblock content %}

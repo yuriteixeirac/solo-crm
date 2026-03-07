@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Customer list{% endblock %}
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/customer-page.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="customer-list-header">
+        <h1>Customer list</h1>
+        <a id="customer-add-button" href="/customer/add/">
+            Add customer
+        </a>
+    </div>
+
+    <form id="search-form" action="/customer/" method="GET">
+        <input id="contact-search" name="q" type="text" placeholder="Contact info...">
+    </form>
+
+    {% if customers %}
+    
+        {% for customer in customers %}
+            <a href="/customer/{{ customer.id }}">
+                <div id="customer">
+                    <div id="customer-info">
+                        <div id="customer-icon">
+                            <h2>{{ customer.name.0 }}</h2>
+                        </div>
+
+                        <div id="customer-details">
+                            <h2>{{ customer.name }}</h2>
+
+                            {% if customer.email %}
+                                <p><strong>E-MAIL</strong>: {{ customer.email }}</p>
+                            {% endif %}
+
+                            {% if customer.number %}
+                                <p><strong>PHONE</strong>: {{ customer.number }}</p>
+                            {% endif %}
+
+                            <p><strong>REGISTERED AT</strong>: {{ customer.created_at }}</p>
+                            <p><strong>LEAD</strong>: {{ customer.lead_state }}</p>
+                        </div>
+                    </div>
+
+                    <div id="customer-actions">
+                        <form action="/customer/delete/{{ customer.id }}" method="GET">
+                            <button id="delete" type="submit">DELETE</button>
+                        </form>
+
+                        <form action="/customer/update/{{ customer.id }}">
+                            <button id="update" type="submit">UPDATE</button>
+                        </form>
+
+                        <form action="/customer/{{ customer.id }}/interaction/add/" method="GET">
+                            <button id="add-interaction" type="submit">INTER<br>ACTION</button>
+                        </form>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    {% else %}
+        <h2>No results found!</h2>
+    {% endif %}
+{% endblock %}

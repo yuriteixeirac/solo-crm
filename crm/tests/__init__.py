@@ -1,0 +1,1 @@
+from crm.tests.test_customer import *
