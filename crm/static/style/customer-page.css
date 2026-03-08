@@ -6,6 +6,7 @@ main a {
 #search-form input {
     width: 96%;
     height: 2rem;
+    background-color: #eff3f7;
     padding: 0 1rem;
     border: 1px solid black;
     border-radius: 8px;

@@ -6,6 +6,7 @@
 body {
     display: grid;
     grid-template-columns: 15% 1fr 15%;
+    background-color: #e2e8f0;
     font-family: sans-serif;
 }
 
