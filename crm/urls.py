@@ -9,5 +9,5 @@ urlpatterns = [
     path('customer/<int:id>/interaction/add/', add_interaction, name='add-interaction'),
     path('customer/add/', add_customer, name='add-customer'),
     path('customer/', list_customers, name='list-customers'),
-    
+    path('customer/csv/', get_customers_csv, name='get-customers-csv'),
 ]

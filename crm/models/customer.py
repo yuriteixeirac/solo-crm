@@ -12,3 +12,8 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+
+
+    def get_csv(self) -> list[str]:
+        return [self.name, self.email, self.number, self.created_at]
+    

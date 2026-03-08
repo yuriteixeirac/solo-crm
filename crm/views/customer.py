@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.http import HttpResponse
+import csv
 from crm.models import Customer, Interaction
 from crm.forms import CustomerForm
 
@@ -98,3 +100,18 @@ def update_customer(request, id: int):
 
     return redirect('/customer/')
     
+
+def get_customers_csv(request):
+    response = HttpResponse(
+        content_type='text/csv', headers={
+            'Content-Disposition': 'attachment; filename="customers.csv"'
+        }
+    )
+
+    writer = csv.writer(response)
+    writer.writerow(['name', 'email', 'number', 'created_at'])
+
+    for customer in Customer.objects.all():
+        writer.writerow(customer.get_csv())
+
+    return response
