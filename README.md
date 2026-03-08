@@ -24,6 +24,5 @@ SoloCRM é um sistema de CRM (Customer Relationship Management) desenvolvido esp
 
 ## To do
 - Tradução do código e conteúdo para português
-- Quadro kanban para de gerenciamento de tarefas
 - Containerização da aplicação para deploy fácil
 - Testes dos modelos e views
